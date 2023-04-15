@@ -72,31 +72,24 @@ const <package> = @import("<package-name>");
 
 ## Variables
 ```zig
-// automatic type
-foo := "String"
-slice := []<type>{}
+// mutable
+var <variable-name>: type = <value>;
+var <variable-name>: type; // empty
 
-// constants
-const var <type> = <value>
-
-// set own type
-var <name> <type> = <value>
-var slice = []<type>{}
+// immutable
+const <variable-name>: type = <value>;
 
 // arrays
-array := [...]<type>{} // fixed size
-array := [][]<type>{} // 2D array
-
-// maps (similar to objects/json in JavaScript)
-maps := map[<key-type>]<value-type>{}
+var arr: [<length>]<type> = [<value>, ...];
+var arr: [<length>]<type>; // empty
 
 /*
 Type: 
-	bool              = %t = true, false
-	int8, 16, 32, 64  = %d = number in range of x bits, can be negative
-	uint8, 16, 32, 64 = %d = number in range of x bits, can't be negative
-	float32, 64       = %g = decimal numbers
-	string            = %s = string
+	bool                     = %b   = true, false
+	u8, u16, u32, u64, u128  = %d   = number in range of x bits, can't be negative
+	i8, i16, i32, i64, i128  = %d   = number in range of x bits, can be negative
+	f16, f32, f64            = %f   = decimal numbers
+	[]const u8               = %.*s = string
 */
 ```
 
