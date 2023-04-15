@@ -200,7 +200,11 @@ while (condition) {
 
 ## Converting
 ```zig
+// str -> int
+const str = "123";
+const num = try std.parseInt(u32, str);
 
+// int -> str
 ```
 
 
