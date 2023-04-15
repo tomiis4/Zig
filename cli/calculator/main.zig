@@ -1,23 +1,25 @@
-const fmt = std.fmt;
 const std = @import("std");
-const printf = std.debug.print;
+
+fn getInput() !i64 {
+    const stdin = std.io.getStdIn().reader();
+
+    var buf: [10]u8 = undefined;
+
+    if (try stdin.readUntilDelimiterOrEof(buf[0..], '\r')) |user_input| {
+        return std.fmt.parseInt(i64, user_input, 10);
+    } else {
+        return @as(i64, 0);
+    }
+}
 
 pub fn main() !void {
-    const stdin = std.io.getStdIn();
+    std.debug.print("Enter first value: ", .{});
+    const num1 = try getInput();
 
-    printf("Calculator - Zig\n", .{});
+    std.debug.print("Enter second value: ", .{});
+    const num2 = try getInput();
 
-    var line_buf: [20]u8 = undefined;
+    const result: i64 = num1 + num2;
 
-    const amt = try stdin.read(&line_buf);
-    if (amt == line_buf.len) {
-        printf("Input too long.\n", .{});
-    }
-    const line = std.mem.trimRight(u8, line_buf[0..amt], "\r\n");
-
-    const guess = fmt.parseUnsigned(u8, line, 10) catch {
-        printf("Invalid number.\n", .{});
-    };
-
-    printf("%d", guess);
+    std.debug.print("The value is {}\n", .{result});
 }

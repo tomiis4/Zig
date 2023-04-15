@@ -89,7 +89,7 @@ Type:
 	u8, u16, u32, u64, u128  = %d   = number in range of x bits, can't be negative
 	i8, i16, i32, i64, i128  = %d   = number in range of x bits, can be negative
 	f16, f32, f64            = %f   = decimal numbers
-	[]const u8               = %.*s = string
+	[] u8               = %.*s = string
 */
 ```
 
