@@ -95,27 +95,53 @@ Type:
 
 ### Structs
 ```zig
+// create struct
+const <Struct-name> = struct {
+    <key1>: <type>,
+    <key2>: <type>,
+};
+
+// use struct
+const <struct-x> = {
+    <key1>: <value>,
+    <key2>: <value>,
+};
 ```
 
 ### Map
 ```zig
+const HashMap = @import("std").HashMap;
 
+// create map
+var <map-name> = HashMap(<type>).init(<length>);
+
+// add item
+<map-name>.put(<key>, <value>);
+
+// read item
+const <value> = <map-name>.get(<key>);
 ```
 
 
 ## Functions
 ```zig
-func name() {
+// normal function for one file
+fn name() void {
+	//...
+}
+
+// public function
+pub fn name() void {
 	//...
 }
 
 // return
-func name() <type> { return x }
-func name() (<type>, <type>) { return x, y }
+fn name() <type> { return x; }
+fn name() (<type>, <type>) { return (x, y); }
 
 // parameters 
-func name(param1 <type>) {  }
-func name(param1, param2 <type>) {  } // if param1 have same type as param2
+fn name(param1: <type>) {  }
+fn name(param1, param2: <type>) {  } // if param1 have same type as param2
 ```
 
 
@@ -123,12 +149,26 @@ func name(param1, param2 <type>) {  } // if param1 have same type as param2
 
 ### If/else
 ```zig
-
+if (<Statements>) {
+    // ...
+}
 ```
 
 ### Switch/case
 ```zig
-
+switch (expression) {
+    case x: {
+        // ...
+        break;
+    }
+    case y: {
+        // ...
+        break;
+    }
+    else => {
+        // ...
+    }
+}
 ```
 
 
@@ -136,16 +176,25 @@ func name(param1, param2 <type>) {  } // if param1 have same type as param2
 
 ### For-I
 ```zig
-
+for (var i: u32 = 0; i<10; i++) {
+    // ...
+}
 ```
 
 ### For-In
 ```zig
+var arr: [10]u8 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+for (arr) |elem, i| {
+    // ...
+}
 ```
 
 ### While
 ```zig
-
+while (condition) {
+    // ...
+}
 ```
 
 
@@ -212,6 +261,10 @@ func name(param1, param2 <type>) {  } // if param1 have same type as param2
 ```zig
 // code
 ```
+
+## TODO
+- [ ] Enums
+- [ ] std.io
 
 
 ## Project ideas
