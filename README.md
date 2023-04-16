@@ -156,18 +156,10 @@ if (<Statements>) {
 
 ### Switch/case
 ```zig
-switch (expression) {
-    case x: {
-        // ...
-        break;
-    }
-    case y: {
-        // ...
-        break;
-    }
-    else => {
-        // ...
-    }
+switch (operation) {
+    y => <do-x>,
+    x => <do-y>,
+    else => <do-else>,
 }
 ```
 
