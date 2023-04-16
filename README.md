@@ -149,7 +149,7 @@ fn name(param1, param2: <type>) {  } // if param1 have same type as param2
 
 ### If/else
 ```zig
-if (<Statements>) {
+if (<statement>) {
     // ...
 }
 ```
@@ -157,8 +157,8 @@ if (<Statements>) {
 ### Switch/case
 ```zig
 switch (operation) {
-    y => <do-x>,
-    x => <do-y>,
+    x => <do-x>,
+    y => <do-y>,
     else => <do-else>,
 }
 ```
